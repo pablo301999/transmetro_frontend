@@ -1,0 +1,68 @@
+.toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding: 0 16px;
+
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 70%;
+  max-height: 70px;
+  width: auto;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 1.5rem;
+  margin-left: 16px;
+}
+
+.options-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.option-button {
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .toolbar-container {
+    flex-direction: row;
+    align-items: center;
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  .title-container {
+    flex: 0 1 auto;
+    margin-right: auto;
+  }
+
+  .logo {
+    max-height: 70px;
+  }
+
+  .options-container {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .option-button {
+    font-size: 0.875rem;
+  }
+
+  .logout-button {
+    margin-right: 16px;
+  }
+}

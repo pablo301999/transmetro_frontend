@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="toolbar-container">
+  <div class="title-container">
+  </div>
+  <div *ngIf="shouldShowOptions()" class="options-container">
+
+  </div>
+  <button mat-icon-button *ngIf="shouldShowLogout()" class="logout-button" (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>

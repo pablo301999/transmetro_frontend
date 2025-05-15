@@ -1,0 +1,12 @@
+{
+  "name": "Transmetro",
+  "short_name": "Transmetro",
+  "theme_color": "#2b317f",
+  "background_color": "#2b317f",
+  "display": "standalone",
+  "scope": "./",
+  "start_url": "./",
+  "icons": [
+    
+  ]
+}
