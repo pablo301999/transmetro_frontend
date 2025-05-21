@@ -1,0 +1,43 @@
+<div class="guardias-container">
+  <h2>Gestión de Guardias</h2>
+
+  <form (ngSubmit)="guardar()">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="nuevoGuardia.nombre" name="nombre" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Turno</mat-label>
+      <input matInput [(ngModel)]="nuevoGuardia.turno" name="turno" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      {{ editando ? 'Actualizar' : 'Agregar' }}
+    </button>
+    <button mat-button type="button" (click)="cancelar()" *ngIf="editando">Cancelar</button>
+  </form>
+
+  <table mat-table [dataSource]="guardias" class="mat-elevation-z8">
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let guardia">{{ guardia.nombre }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="turno">
+      <th mat-header-cell *matHeaderCellDef>Turno</th>
+      <td mat-cell *matCellDef="let guardia">{{ guardia.turno }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let guardia">
+        <button mat-button (click)="editar(guardia)">Editar</button>
+        <button mat-button color="warn" (click)="eliminar(guardia.idGuardia!)">Eliminar</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['nombre', 'turno', 'acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['nombre', 'turno', 'acciones']"></tr>
+  </table>
+</div>

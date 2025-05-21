@@ -1,0 +1,43 @@
+<div class="lineas-container">
+  <h2>Gestión de Líneas</h2>
+
+  <form (ngSubmit)="guardar()">
+    <mat-form-field>
+      <mat-label>Nombre de la Línea</mat-label>
+      <input matInput [(ngModel)]="nuevaLinea.nombre" name="nombre" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Zona de Origen</mat-label>
+      <input matInput type="number" [(ngModel)]="nuevaLinea.zonaOrigen" name="zonaOrigen" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      {{ editando ? 'Actualizar' : 'Agregar' }}
+    </button>
+    <button mat-button type="button" (click)="cancelar()" *ngIf="editando">Cancelar</button>
+  </form>
+
+  <table mat-table [dataSource]="lineas" class="mat-elevation-z8">
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let linea">{{ linea.nombre }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="zonaOrigen">
+      <th mat-header-cell *matHeaderCellDef>Zona Origen</th>
+      <td mat-cell *matCellDef="let linea">{{ linea.zonaOrigen }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let linea">
+        <button mat-button (click)="editar(linea)">Editar</button>
+        <button mat-button color="warn" (click)="eliminar(linea.idLinea!)">Eliminar</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['nombre', 'zonaOrigen', 'acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['nombre', 'zonaOrigen', 'acciones']"></tr>
+  </table>
+</div>

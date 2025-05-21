@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Gestión de Accesos</h2>
+
+  <form (ngSubmit)="guardarAcceso()">
+    <mat-form-field appearance="fill">
+      <mat-label>Descripción</mat-label>
+      <input matInput [(ngModel)]="modoEditar ? accesoEditando.descripcion : nuevoAcceso.descripcion" name="descripcion">
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="modoEditar ? accesoEditando.estado : nuevoAcceso.estado" name="estado">Activo</mat-checkbox>
+    <button mat-raised-button color="primary" type="submit">{{ modoEditar ? 'Actualizar' : 'Crear' }}</button>
+    <button *ngIf="modoEditar" mat-button (click)="cancelarEdicion()">Cancelar</button>
+  </form>
+
+  <table mat-table [dataSource]="accesos" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let acceso"> {{acceso.idAcceso}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef> Descripción </th>
+      <td mat-cell *matCellDef="let acceso"> {{acceso.descripcion}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="estado">
+      <th mat-header-cell *matHeaderCellDef> Estado </th>
+      <td mat-cell *matCellDef="let acceso"> {{acceso.estado ? 'Activo' : 'Inactivo'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let acceso">
+        <button mat-button color="accent" (click)="editarAcceso(acceso)">Editar</button>
+        <button mat-button color="warn" (click)="eliminarAcceso(acceso.idAcceso!)">Eliminar</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['id', 'descripcion', 'estado', 'acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['id', 'descripcion', 'estado', 'acciones'];"></tr>
+  </table>
+</div>

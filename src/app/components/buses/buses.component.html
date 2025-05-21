@@ -1,51 +1,43 @@
-<div class="container">
+<div class="buses-container">
   <h2>Gestión de Buses</h2>
 
   <form (ngSubmit)="guardar()">
     <mat-form-field>
-      <input matInput placeholder="Número de bus" [(ngModel)]="bus.numeroBus" name="numeroBus" required>
+      <mat-label>Número de Bus</mat-label>
+      <input matInput [(ngModel)]="nuevoBus.numeroBus" name="numeroBus" required>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="number" placeholder="Capacidad" [(ngModel)]="bus.capacidad" name="capacidad" required>
+      <mat-label>Capacidad</mat-label>
+      <input matInput type="number" [(ngModel)]="nuevoBus.capacidad" name="capacidad" required>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput type="number" placeholder="ID Línea" [(ngModel)]="bus.idLinea" name="idLinea">
-    </mat-form-field>
-
-    <mat-form-field>
-      <input matInput type="number" placeholder="ID Parqueo" [(ngModel)]="bus.idParqueo" name="idParqueo">
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit">Guardar</button>
+    <button mat-raised-button color="primary" type="submit">
+      {{ editando ? 'Actualizar' : 'Agregar' }}
+    </button>
+    <button mat-button type="button" (click)="cancelar()" *ngIf="editando">Cancelar</button>
   </form>
 
   <table mat-table [dataSource]="buses" class="mat-elevation-z8">
-    <ng-container matColumnDef="idBus">
-      <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let b">{{ b.idBus }}</td>
-    </ng-container>
-
     <ng-container matColumnDef="numeroBus">
       <th mat-header-cell *matHeaderCellDef>Número</th>
-      <td mat-cell *matCellDef="let b">{{ b.numeroBus }}</td>
+      <td mat-cell *matCellDef="let bus">{{ bus.numeroBus }}</td>
     </ng-container>
 
     <ng-container matColumnDef="capacidad">
       <th mat-header-cell *matHeaderCellDef>Capacidad</th>
-      <td mat-cell *matCellDef="let b">{{ b.capacidad }}</td>
+      <td mat-cell *matCellDef="let bus">{{ bus.capacidad }}</td>
     </ng-container>
 
     <ng-container matColumnDef="acciones">
       <th mat-header-cell *matHeaderCellDef>Acciones</th>
-      <td mat-cell *matCellDef="let b">
-        <button mat-button (click)="editar(b)">Editar</button>
-        <button mat-button color="warn" (click)="eliminar(b.idBus!)">Eliminar</button>
+      <td mat-cell *matCellDef="let bus">
+        <button mat-button (click)="editar(bus)">Editar</button>
+        <button mat-button color="warn" (click)="eliminar(bus.idBus!)">Eliminar</button>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-    <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+    <tr mat-header-row *matHeaderRowDef="['numeroBus', 'capacidad', 'acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['numeroBus', 'capacidad', 'acciones']"></tr>
   </table>
 </div>

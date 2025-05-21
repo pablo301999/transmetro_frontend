@@ -20,6 +20,13 @@ import { DatePipe } from '@angular/common';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { BusesComponent } from './components/buses/buses.component';
+import { LineasComponent } from './components/lineas/lineas.component';
+import { EstacionesComponent } from './components/estaciones/estaciones.component';
+import { ParqueosComponent } from './components/parqueos/parqueos.component';
+import { GuardiasComponent } from './components/guardias/guardias.component';
+import { PilotosComponent } from './components/pilotos/pilotos.component';
+import { DistanciasComponent } from './components/distancias/distancias.component';
+import { AccesosComponent } from './components/accesos/accesos.component';
 
 
 const MY_DATE_FORMATS = {
@@ -45,6 +52,13 @@ const MY_DATE_FORMATS = {
     SpinnerComponent,
     UsuariosComponent,
     BusesComponent,
+    LineasComponent,
+    EstacionesComponent,
+    ParqueosComponent,
+    GuardiasComponent,
+    PilotosComponent,
+    DistanciasComponent,
+    AccesosComponent,
   ],
   imports: [
     FormsModule,

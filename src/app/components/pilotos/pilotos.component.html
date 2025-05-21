@@ -1,0 +1,63 @@
+<div class="pilotos-container">
+  <h2>Gestión de Pilotos</h2>
+
+  <form (ngSubmit)="guardar()">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput [(ngModel)]="nuevoPiloto.nombre" name="nombre" required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Apellido</mat-label>
+      <input matInput [(ngModel)]="nuevoPiloto.apellido" name="apellido">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Licencia</mat-label>
+      <input matInput [(ngModel)]="nuevoPiloto.licencia" name="licencia">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Teléfono</mat-label>
+      <input matInput [(ngModel)]="nuevoPiloto.telefono" name="telefono">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">
+      {{ editando ? 'Actualizar' : 'Agregar' }}
+    </button>
+    <button mat-button type="button" (click)="cancelar()" *ngIf="editando">Cancelar</button>
+  </form>
+
+  <table mat-table [dataSource]="pilotos" class="mat-elevation-z8">
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let piloto">{{ piloto.nombre }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef>Apellido</th>
+      <td mat-cell *matCellDef="let piloto">{{ piloto.apellido }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="licencia">
+      <th mat-header-cell *matHeaderCellDef>Licencia</th>
+      <td mat-cell *matCellDef="let piloto">{{ piloto.licencia }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="telefono">
+      <th mat-header-cell *matHeaderCellDef>Teléfono</th>
+      <td mat-cell *matCellDef="let piloto">{{ piloto.telefono }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let piloto">
+        <button mat-button (click)="editar(piloto)">Editar</button>
+        <button mat-button color="warn" (click)="eliminar(piloto.idPiloto!)">Eliminar</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['nombre', 'apellido', 'licencia', 'telefono', 'acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['nombre', 'apellido', 'licencia', 'telefono', 'acciones']"></tr>
+  </table>
+</div>

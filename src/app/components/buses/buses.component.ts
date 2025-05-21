@@ -4,42 +4,52 @@ import { BusService } from 'src/app/services/bus.service';
 
 @Component({
   selector: 'app-buses',
-  templateUrl: './buses.component.html'
+  templateUrl: './buses.component.html',
+  styleUrls: ['./buses.component.css']
 })
 export class BusesComponent implements OnInit {
   buses: Bus[] = [];
-  bus: Bus = { numeroBus: '', capacidad: 0 };
-  columnas: string[] = ['idBus', 'numeroBus', 'capacidad', 'acciones'];
+  nuevoBus: Bus = { numeroBus: '', capacidad: 0 };
+  editando: boolean = false;
+  seleccionado?: Bus;
 
   constructor(private busService: BusService) {}
 
   ngOnInit(): void {
-    this.obtenerBuses();
+    this.cargarBuses();
   }
 
-  obtenerBuses(): void {
-    this.busService.obtenerTodos().subscribe(data => this.buses = data);
+  cargarBuses(): void {
+    this.busService.obtenerBuses().subscribe(data => this.buses = data);
   }
 
   guardar(): void {
-    if (this.bus.idBus) {
-      this.busService.actualizar(this.bus.idBus, this.bus).subscribe(() => {
-        this.obtenerBuses();
-        this.bus = { numeroBus: '', capacidad: 0 };
+    if (this.editando && this.seleccionado?.idBus) {
+      this.busService.actualizarBus(this.seleccionado.idBus, this.nuevoBus).subscribe(() => {
+        this.cargarBuses();
+        this.cancelar();
       });
     } else {
-      this.busService.crear(this.bus).subscribe(() => {
-        this.obtenerBuses();
-        this.bus = { numeroBus: '', capacidad: 0 };
+      this.busService.crearBus(this.nuevoBus).subscribe(() => {
+        this.cargarBuses();
+        this.cancelar();
       });
     }
   }
 
-  editar(b: Bus): void {
-    this.bus = { ...b };
+  editar(bus: Bus): void {
+    this.nuevoBus = { ...bus };
+    this.seleccionado = bus;
+    this.editando = true;
   }
 
   eliminar(id: number): void {
-    this.busService.eliminar(id).subscribe(() => this.obtenerBuses());
+    this.busService.eliminarBus(id).subscribe(() => this.cargarBuses());
+  }
+
+  cancelar(): void {
+    this.nuevoBus = { numeroBus: '', capacidad: 0 };
+    this.editando = false;
+    this.seleccionado = undefined;
   }
 }
