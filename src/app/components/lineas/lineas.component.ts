@@ -5,7 +5,7 @@ import { LineaService } from 'src/app/services/lineal.service';
 @Component({
   selector: 'app-lineas',
   templateUrl: './lineas.component.html',
-  styleUrls: ['./lineas.component.css']
+  styleUrls: ['./lineas.component.scss']
 })
 export class LineasComponent implements OnInit {
   lineas: Linea[] = [];

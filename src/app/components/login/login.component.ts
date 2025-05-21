@@ -5,7 +5,8 @@ import { LoginRequest } from 'src/app/models/login-request.model';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   datos: LoginRequest = { correo: '', contrasenia: '' };
@@ -17,7 +18,7 @@ export class LoginComponent {
     this.authService.login(this.datos).subscribe({
       next: res => {
         this.authService.guardarToken(res.token);
-        this.router.navigate(['/usuarios']); // o ruta principal
+        this.router.navigate(['/usuarios']);
       },
       error: () => {
         this.error = 'Credenciales incorrectas.';

@@ -5,7 +5,7 @@ import { DistanciaService } from 'src/app/services/distancia.service';
 @Component({
   selector: 'app-distancias',
   templateUrl: './distancias.component.html',
-  styleUrls: ['./distancias.component.css']
+  styleUrls: ['./distancias.component.scss']
 })
 export class DistanciasComponent implements OnInit {
   distancias: Distancia[] = [];

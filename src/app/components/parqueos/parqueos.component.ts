@@ -5,7 +5,7 @@ import { ParqueoService } from 'src/app/services/parqueo.service';
 @Component({
   selector: 'app-parqueos',
   templateUrl: './parqueos.component.html',
-  styleUrls: ['./parqueos.component.css']
+  styleUrls: ['./parqueos.component.scss']
 })
 export class ParqueosComponent implements OnInit {
   parqueos: Parqueo[] = [];

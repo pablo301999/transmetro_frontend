@@ -5,7 +5,7 @@ import { BusService } from 'src/app/services/bus.service';
 @Component({
   selector: 'app-buses',
   templateUrl: './buses.component.html',
-  styleUrls: ['./buses.component.css']
+  styleUrls: ['./buses.component.scss']
 })
 export class BusesComponent implements OnInit {
   buses: Bus[] = [];

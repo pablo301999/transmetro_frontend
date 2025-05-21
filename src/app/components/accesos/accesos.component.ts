@@ -4,6 +4,7 @@ import { AccesoService } from 'src/app/services/acceso.service';
 
 @Component({
   selector: 'app-accesos',
+    styleUrls: ['./accesos.component.scss'],
   templateUrl: './accesos.component.html'
 })
 export class AccesosComponent implements OnInit {

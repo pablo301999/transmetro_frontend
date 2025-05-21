@@ -5,7 +5,7 @@ import { Estacion } from 'src/app/models/estacion.model';
 @Component({
   selector: 'app-estaciones',
   templateUrl: './estaciones.component.html',
-  styleUrls: ['./estaciones.component.css']
+  styleUrls: ['./estaciones.component.scss']
 })
 export class EstacionesComponent implements OnInit {
   estaciones: Estacion[] = [];

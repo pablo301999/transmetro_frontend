@@ -5,7 +5,7 @@ import { GuardiaService } from 'src/app/services/guardia.service';
 @Component({
   selector: 'app-guardias',
   templateUrl: './guardias.component.html',
-  styleUrls: ['./guardias.component.css']
+  styleUrls: ['./guardias.component.scss']
 })
 export class GuardiasComponent implements OnInit {
   guardias: Guardia[] = [];

@@ -5,7 +5,7 @@ import { PilotoService } from 'src/app/services/piloto.service';
 @Component({
   selector: 'app-pilotos',
   templateUrl: './pilotos.component.html',
-  styleUrls: ['./pilotos.component.css']
+  styleUrls: ['./pilotos.component.scss']
 })
 export class PilotosComponent implements OnInit {
   pilotos: Piloto[] = [];
