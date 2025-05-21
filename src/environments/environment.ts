@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  seguridad: true,
-  api: "https://transmetrobackend-production.up.railway.app", //ruta para conectar el backend
-  //api: "http://localhost:8080"
+  seguridad: false,
+   //api: "https://transmetrobackend-production.up.railway.app", //ruta para conectar el backend
+ api: "http://localhost:8080"
 };
 
 /*

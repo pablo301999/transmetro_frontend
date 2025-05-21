@@ -1,0 +1,65 @@
+<div class="p-4">
+  <form [formGroup]="usuarioForm" (ngSubmit)="guardar()">
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Nombre Completo</mat-label>
+      <input matInput formControlName="nombreCompleto">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Correo</mat-label>
+      <input matInput formControlName="correo">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Número de Empleado</mat-label>
+      <input matInput formControlName="numeroEmpleado">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Rol</mat-label>
+      <input matInput formControlName="rol">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>Contraseña</mat-label>
+      <input matInput type="password" formControlName="contraseña">
+    </mat-form-field>
+
+    <mat-slide-toggle formControlName="estado">Activo</mat-slide-toggle>
+
+    <div class="mt-4">
+      <button mat-raised-button color="primary" type="submit">{{ editando ? 'Actualizar' : 'Crear' }}</button>
+      <button mat-button type="button" (click)="cancelar()" *ngIf="editando">Cancelar</button>
+    </div>
+  </form>
+
+  <mat-divider class="my-6"></mat-divider>
+
+  <table mat-table [dataSource]="usuarios" class="mat-elevation-z8 w-full">
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let u">{{ u.nombreCompleto }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="correo">
+      <th mat-header-cell *matHeaderCellDef>Correo</th>
+      <td mat-cell *matCellDef="let u">{{ u.correo }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="rol">
+      <th mat-header-cell *matHeaderCellDef>Rol</th>
+      <td mat-cell *matCellDef="let u">{{ u.rol }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let u">
+        <button mat-icon-button (click)="editar(u)"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="eliminar(u.idUsuario)"><mat-icon>delete</mat-icon></button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['nombre', 'correo', 'rol', 'acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['nombre', 'correo', 'rol', 'acciones'];"></tr>
+  </table>
+</div>

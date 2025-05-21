@@ -17,6 +17,10 @@ import { SpinnerService } from './services/spinner.service';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SpinnerInterceptor } from './interceptors/spinner.interceptor';
 import { DatePipe } from '@angular/common';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { BusesComponent } from './components/buses/buses.component';
+
 
 const MY_DATE_FORMATS = {
   parse: {
@@ -39,6 +43,8 @@ const MY_DATE_FORMATS = {
     BarraNavegacionComponent,
     InicioComponent,
     SpinnerComponent,
+    UsuariosComponent,
+    BusesComponent,
   ],
   imports: [
     FormsModule,
@@ -54,8 +60,8 @@ const MY_DATE_FORMATS = {
   providers: [
     DatePipe,
     SpinnerService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true }  // Añade el SpinnerInterceptor aquí
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

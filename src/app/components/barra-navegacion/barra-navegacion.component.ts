@@ -23,20 +23,20 @@ export class BarraNavegacionComponent implements OnInit {
     return !excludedRoutes.includes(this.router.url);
   }
 
-  logout(): void {
-    this.authService.logout();
-  }
+  // logout(): void {
+  //   this.authService.logout();
+  // }
 
-  navigateHome(): void {
-    if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/inicio']);
-    } else {
-      this.router.navigate(['/login']);
-    }
-  }
+  // navigateHome(): void {
+  //   if (this.authService.isAuthenticated()) {
+  //     this.router.navigate(['/inicio']);
+  //   } else {
+  //     this.router.navigate(['/login']);
+  //   }
+  // }
 
-  hasRole(role: string): boolean {
-    const roles = this.authService.getRoles();
-    return roles.includes(role);
-  }
+  // hasRole(role: string): boolean {
+  //   const roles = this.authService.getRoles();
+  //   return roles.includes(role);
+  // }
 }

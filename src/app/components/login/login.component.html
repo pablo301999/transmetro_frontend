@@ -1,16 +1,22 @@
 <div class="login-container">
   <h2>Login</h2>
-  <form (ngSubmit)="login()">
-    <mat-form-field>
-      <mat-label>Usuario</mat-label>
-      <input matInput type="text" id="username" name="username" [(ngModel)]="username" autocomplete="username" required>
+  <form (ngSubmit)="iniciarSesion()">
+    <mat-form-field appearance="fill">
+      <mat-label>Correo electrónico</mat-label>
+      <input matInput type="email" [(ngModel)]="datos.correo" name="correo" required>
     </mat-form-field>
-    <mat-form-field>
+
+    <mat-form-field appearance="fill">
       <mat-label>Contraseña</mat-label>
-      <input matInput type="password" id="password" name="password" [(ngModel)]="password" autocomplete="current-password" required>
+      <input matInput type="password" [(ngModel)]="datos.contrasenia" name="contrasenia" required>
     </mat-form-field>
+
     <div class="form-buttons">
       <button mat-raised-button color="primary" type="submit">Ingresar</button>
+    </div>
+
+    <div *ngIf="error" style="color: red; margin-top: 8px;">
+      {{ error }}
     </div>
   </form>
 </div>
