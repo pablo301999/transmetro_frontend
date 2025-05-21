@@ -23,9 +23,9 @@ export class BarraNavegacionComponent implements OnInit {
     return !excludedRoutes.includes(this.router.url);
   }
 
-  // logout(): void {
-  //   this.authService.logout();
-  // }
+  logout(): void {
+    this.authService.logout();
+  }
 
   // navigateHome(): void {
   //   if (this.authService.isAuthenticated()) {

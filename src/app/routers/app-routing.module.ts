@@ -12,12 +12,13 @@ import { ParqueosComponent } from "../components/parqueos/parqueos.component";
 import { PilotosComponent } from "../components/pilotos/pilotos.component";
 import { DistanciasComponent } from "../components/distancias/distancias.component";
 import { AccesosComponent } from "../components/accesos/accesos.component";
+import { GuardiasComponent } from "../components/guardias/guardias.component";
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'inicio', component: InicioComponent },
- // { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'buses', component: BusesComponent },
   { path: 'lineas', component: LineasComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'pilotos', component: PilotosComponent },
   { path: 'distancias', component: DistanciasComponent },
   { path: 'accesos', component: AccesosComponent },
+  { path: 'guardias', component: GuardiasComponent },
 
 
 ];

@@ -1,10 +1,19 @@
-<!-- <mat-toolbar color="primary" class="toolbar-container">
+<mat-toolbar color="primary" class="toolbar-container">
   <div class="title-container">
   </div>
   <div *ngIf="shouldShowOptions()" class="options-container">
-
+    <button mat-button routerLink="/usuarios">Usuarios</button>
+    <button mat-button routerLink="/buses">Buses</button>
+    <button mat-button routerLink="/pilotos">Pilotos</button>
+    <button mat-button routerLink="/guardias">Guardias</button>
+    <button mat-button routerLink="/lineas">Líneas</button>
+    <button mat-button routerLink="/estaciones">Estaciones</button>
+    <button mat-button routerLink="/distancias">Distancias</button>
+    <button mat-button routerLink="/parqueos">Parqueos</button>
+    <button mat-button routerLink="/accesos">Accesos</button>
   </div>
+
   <button mat-icon-button *ngIf="shouldShowLogout()" class="logout-button" (click)="logout()">
     <mat-icon>exit_to_app</mat-icon>
   </button>
-</mat-toolbar> -->
+</mat-toolbar>

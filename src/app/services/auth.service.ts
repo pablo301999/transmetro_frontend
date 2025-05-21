@@ -4,12 +4,13 @@ import { environment } from 'src/environments/environment';
 import { LoginRequest } from '../models/login-request.model';
 import { LoginResponse } from '../models/login-response.model';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private baseUrl = `${environment.api}/auth`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(data: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`${this.baseUrl}/login`, data);
@@ -27,7 +28,8 @@ export class AuthService {
     return !!this.obtenerToken();
   }
 
-  cerrarSesion() {
+  logout() {
     localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }
