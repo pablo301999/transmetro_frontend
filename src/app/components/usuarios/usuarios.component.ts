@@ -23,6 +23,7 @@ export class UsuariosComponent implements OnInit {
     this.usuarioForm = this.fb.group({
       nombreCompleto: [''],
       correo: [''],
+      usuario: [''],
       numeroEmpleado: [''],
       rol: [''],
       contraseña: [''],

@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  datos: LoginRequest = { correo: '', contrasenia: '' };
+  datos: LoginRequest = { usuario: '', contrasenia: '' };
   error = '';
 
   constructor(private authService: AuthService, private router: Router) {}
