@@ -51,6 +51,11 @@
       <td mat-cell *matCellDef="let u">{{ u.correo }}</td>
     </ng-container>
 
+    <ng-container matColumnDef="usuario">
+      <th mat-header-cell *matHeaderCellDef>Usuario</th>
+      <td mat-cell *matCellDef="let u">{{ u.usuario }}</td>
+    </ng-container>
+
     <ng-container matColumnDef="rol">
       <th mat-header-cell *matHeaderCellDef>Rol</th>
       <td mat-cell *matCellDef="let u">{{ u.rol }}</td>
@@ -64,7 +69,7 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['nombre', 'correo', 'rol', 'acciones']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['nombre', 'correo', 'rol', 'acciones'];"></tr>
+    <tr mat-header-row *matHeaderRowDef="['nombre', 'correo', 'usuario', 'rol', 'acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['nombre', 'correo', 'usuario', 'rol', 'acciones'];"></tr>
   </table>
 </div>
