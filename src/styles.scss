@@ -183,3 +183,14 @@ button:focus {
   -webkit-justify-content: center;
   justify-content: center;
 }
+
+.fondo-login {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+
+  background-image: url('/assets/imagenes/Logo_Transmetro_Guatemala.png');
+  background-size: 300px auto;         
+  background-position: center;       
+  background-color: #ffffff;       
+}

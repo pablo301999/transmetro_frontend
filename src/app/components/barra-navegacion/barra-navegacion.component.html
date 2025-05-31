@@ -1,16 +1,53 @@
-<mat-toolbar color="primary" class="toolbar-container">
+<mat-toolbar *ngIf="shouldShowOptions()" color="primary" class="toolbar-container">
   <div class="title-container">
+    <span class="title">Transmetro</span>
   </div>
-  <div *ngIf="shouldShowOptions()" class="options-container">
-    <button mat-button routerLink="/usuarios">Usuarios</button>
-    <button mat-button routerLink="/buses">Buses</button>
-    <button mat-button routerLink="/pilotos">Pilotos</button>
-    <button mat-button routerLink="/guardias">Guardias</button>
-    <button mat-button routerLink="/lineas">Líneas</button>
-    <button mat-button routerLink="/estaciones">Estaciones</button>
-    <button mat-button routerLink="/distancias">Distancias</button>
-    <button mat-button routerLink="/parqueos">Parqueos</button>
-    <button mat-button routerLink="/accesos">Accesos</button>
+
+  <div class="options-container">
+    <button mat-button routerLink="/usuarios">
+      <mat-icon class="mr-1">people</mat-icon>
+      Usuarios
+    </button>
+
+    <button mat-button routerLink="/buses">
+      <mat-icon class="mr-1">directions_bus</mat-icon>
+      Buses
+    </button>
+
+    <button mat-button routerLink="/pilotos">
+      <mat-icon class="mr-1">person</mat-icon>
+      Pilotos
+    </button>
+
+    <button mat-button routerLink="/guardias">
+      <mat-icon class="mr-1">security</mat-icon>
+      Guardias
+    </button>
+
+    <button mat-button routerLink="/lineas">
+      <mat-icon class="mr-1">timeline</mat-icon>
+      Líneas
+    </button>
+
+    <button mat-button routerLink="/estaciones">
+      <mat-icon class="mr-1">location_on</mat-icon>
+      Estaciones
+    </button>
+
+    <button mat-button routerLink="/distancias">
+      <mat-icon class="mr-1">map</mat-icon>
+      Distancias
+    </button>
+
+    <button mat-button routerLink="/parqueos">
+      <mat-icon class="mr-1">local_parking</mat-icon>
+      Parqueos
+    </button>
+
+    <button mat-button routerLink="/accesos">
+      <mat-icon class="mr-1">vpn_key</mat-icon>
+      Accesos
+    </button>
   </div>
 
   <button mat-icon-button *ngIf="shouldShowLogout()" class="logout-button" (click)="logout()">
