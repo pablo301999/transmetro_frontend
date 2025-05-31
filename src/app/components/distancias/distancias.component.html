@@ -4,17 +4,17 @@
   <form (ngSubmit)="guardar()">
     <mat-form-field>
       <mat-label>ID Estación Origen</mat-label>
-      <input matInput type="number" [(ngModel)]="nueva.estacionOrigen" name="origen" required>
+      <input matInput type="number" [(ngModel)]="nueva.idEstacionOrigen" name="origen" required>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>ID Estación Destino</mat-label>
-      <input matInput type="number" [(ngModel)]="nueva.estacionDestino" name="destino" required>
+      <input matInput type="number" [(ngModel)]="nueva.idEstacionDestino" name="destino" required>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Distancia (metros)</mat-label>
-      <input matInput type="number" [(ngModel)]="nueva.distanciaMetros" name="distancia" required>
+      <input matInput type="number" [(ngModel)]="nueva.distanciaKm" name="distancia" required>
     </mat-form-field>
 
     <button mat-raised-button color="primary" type="submit">
@@ -26,17 +26,17 @@
   <table mat-table [dataSource]="distancias" class="mat-elevation-z8">
     <ng-container matColumnDef="origen">
       <th mat-header-cell *matHeaderCellDef>Origen</th>
-      <td mat-cell *matCellDef="let d">{{ d.estacionOrigen }}</td>
+      <td mat-cell *matCellDef="let d">{{ d.idEstacionOrigen }}</td>
     </ng-container>
 
     <ng-container matColumnDef="destino">
       <th mat-header-cell *matHeaderCellDef>Destino</th>
-      <td mat-cell *matCellDef="let d">{{ d.estacionDestino }}</td>
+      <td mat-cell *matCellDef="let d">{{ d.idEstacionDestino }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="metros">
-      <th mat-header-cell *matHeaderCellDef>Metros</th>
-      <td mat-cell *matCellDef="let d">{{ d.distanciaMetros }}</td>
+    <ng-container matColumnDef="kilometros">
+      <th mat-header-cell *matHeaderCellDef>Kilometros</th>
+      <td mat-cell *matCellDef="let d">{{ d.distanciaKm }}</td>
     </ng-container>
 
     <ng-container matColumnDef="acciones">
@@ -47,7 +47,7 @@
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['origen', 'destino', 'metros', 'acciones']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['origen', 'destino', 'metros', 'acciones']"></tr>
+    <tr mat-header-row *matHeaderRowDef="['origen', 'destino', 'kilometros', 'acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['origen', 'destino', 'kilometros', 'acciones']"></tr>
   </table>
 </div>

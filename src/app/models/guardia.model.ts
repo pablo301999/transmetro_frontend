@@ -1,6 +1,6 @@
 export interface Guardia {
   idGuardia?: number;
-  nombre: string;
+  nombreCompleto: string;
   turno: string;
   activo?: boolean;
 }

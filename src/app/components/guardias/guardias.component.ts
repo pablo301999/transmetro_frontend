@@ -9,7 +9,7 @@ import { GuardiaService } from 'src/app/services/guardia.service';
 })
 export class GuardiasComponent implements OnInit {
   guardias: Guardia[] = [];
-  nuevoGuardia: Guardia = { nombre: '', turno: '' };
+  nuevoGuardia: Guardia = { nombreCompleto: '', turno: '' };
   editando: boolean = false;
   seleccionado?: Guardia;
 
@@ -48,7 +48,7 @@ export class GuardiasComponent implements OnInit {
   }
 
   cancelar(): void {
-    this.nuevoGuardia = { nombre: '', turno: '' };
+    this.nuevoGuardia = { nombreCompleto: '', turno: '' };
     this.editando = false;
     this.seleccionado = undefined;
   }
